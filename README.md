@@ -8,7 +8,7 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 
 1. Download the latest release zip file.
 2. Extract the folder from the zipped archive.
-3. in Google chrome click the puzzle piece icon at the top and select manage extensions at the bottom
+3. In the Google Chrome desktop application click on the puzzle piece icon at the top and select manage extensions at the bottom
 
    *if no puzzle piece icon is present you will need to click the three dots in the top right, select extensions then manage extensions
 
