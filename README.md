@@ -2,6 +2,10 @@
 
 For translating video subtitles to multiple languages across multiple video and streaming services, with the intention of being used for language learning. This is my first Google Chrome extension so any feedback on websites that did not work for you or any other issues encountered while using it would be greatly appreciated. 
 
+If you use and like the extension, consider buying me a coffee!
+
+https://buymeacoffee.com/stefman69
+
 # Installation Instructions
 
 I am hopeful Google Chrome will approve my extension on their store soon, but until then this extension will need to be manually installed. 
