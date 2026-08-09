@@ -10,7 +10,7 @@ https://buymeacoffee.com/stefman69
 
 I am hopeful Google Chrome will approve my extension on their store soon, but until then this extension will need to be manually installed. 
 
-1. Download the latest release zip file.
+1. Download the latest release zip file. It can be found here: https://github.com/stefman69/OpenSub-Overlay/releases/tag/v1.0
 2. Extract the folder from the zipped archive.
 3. In the Google Chrome desktop application click on the puzzle piece icon at the top and select manage extensions at the bottom
 
