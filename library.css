@@ -1,0 +1,19 @@
+:root { color-scheme: dark; font-family: Arial, Helvetica, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #15171b; color: #f4f5f7; }
+main { max-width: 1000px; margin: 0 auto; padding: 30px 22px; }
+header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 24px; }
+h1 { margin: 0 0 6px; }
+p { margin: 0; color: #9da6b4; }
+.actions { display: flex; gap: 8px; }
+button, .import { border: 0; border-radius: 7px; padding: 9px 12px; background: #39414d; color: #fff; cursor: pointer; font-weight: 700; }
+.import input { display: none; }
+.entry { background: #20242b; border: 1px solid #313640; border-radius: 10px; padding: 15px; margin-bottom: 11px; }
+.entry h2 { font-size: 16px; margin: 0 0 5px; }
+.url { color: #9da6b4; font-size: 12px; overflow-wrap: anywhere; }
+.meta { color: #cbd2dc; font-size: 12px; margin: 9px 0; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.row button { width: auto; }
+.danger { background: #8f3640; }
+.empty { padding: 30px; text-align: center; color: #9da6b4; }
+.hidden { display: none; }

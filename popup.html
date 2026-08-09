@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenSub Overlay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>OpenSub Overlay</h1>
+        <p>Universal subtitle capture, translation & overlay</p>
+      </div>
+      <label class="switchline"><input id="globalEnabled" type="checkbox" checked> On</label>
+    </header>
+
+    <section class="card pagecard">
+      <div id="pageTitle" class="title">Checking…</div>
+      <div id="pageUrl" class="small"></div>
+      <div id="videoState" class="state">Looking for video players…</div>
+      <div id="savedState" class="state muted"></div>
+      <button id="refreshDetection" class="secondary compactbutton">↻ Refresh detection</button>
+    </section>
+
+    <section class="card sourcecard">
+      <h2>Subtitle source</h2>
+      <div class="sourcepicker" role="group" aria-label="Subtitle source">
+        <button id="sourceHtml5" class="sourcechoice" type="button">
+          <span class="sourcetitle">HTML5 / Track</span>
+          <span id="html5SourceBadge" class="sourcebadge off">Not detected</span>
+        </button>
+        <button id="sourceLive" class="sourcechoice" type="button">
+          <span class="sourcetitle">Live captions</span>
+          <span id="liveSourceBadge" class="sourcebadge off">Not detected</span>
+        </button>
+      </div>
+      <div id="captureState" class="state muted">Checking subtitle sources…</div>
+    </section>
+
+    <section class="card settingscard">
+      <h2 id="sourcePanelTitle">HTML5 / complete-track settings</h2>
+
+      <div id="html5Panel">
+        <label class="field">HTML5 subtitle track
+          <select id="siteTrack"><option value="">No exposed tracks detected</option></select>
+        </label>
+        <button id="captureTrack" class="secondary" disabled>Capture selected track</button>
+
+        <details class="moreoptions">
+          <summary>Other complete-track options</summary>
+          <div class="detailsbody">
+            <label class="field">Captured timed-text resource
+              <select id="networkTrack"><option value="">No caption resources captured yet</option></select>
+            </label>
+            <button id="captureNetwork" class="secondary" disabled>Use captured timed-text resource</button>
+            <div class="small hint">If the site uses a custom player, turn its captions on, play a few seconds, then Refresh detection.</div>
+
+            <div class="or">or import</div>
+            <label class="field">Subtitle file (.srt / .vtt / .ttml)
+              <input id="subtitleFile" type="file" accept=".srt,.vtt,.ttml,.dfxp,.xml,.smi,text/vtt,application/x-subrip,text/plain,application/xml">
+            </label>
+          </div>
+        </details>
+        <div id="sourceState" class="state muted">Choose or capture a complete subtitle track.</div>
+      </div>
+
+      <div id="livePanel" class="hidden">
+        <div id="domCaptionState" class="state muted">Checking for captions rendered directly on the page…</div>
+        <div class="small hint">Use Live when subtitles are visibly changing on the video but no complete track is available. OpenSub translates each displayed caption as it appears.</div>
+      </div>
+
+      <div class="languagebox">
+        <div class="grid2">
+          <label class="field">From
+            <select id="sourceLanguage"></select>
+          </label>
+          <label class="field">To
+            <select id="targetLanguage"></select>
+          </label>
+        </div>
+      </div>
+
+      <div id="trackActions">
+        <button id="translateSave" class="primary">Translate & overlay</button>
+        <button id="saveOriginal" class="secondary">Overlay without translating</button>
+        <div id="progressWrap" class="progress hidden">
+          <div class="bar"><div id="progressBar"></div></div>
+          <div id="progressText" class="small"></div>
+        </div>
+      </div>
+
+      <div id="liveActions" class="hidden">
+        <div class="row">
+          <button id="startLive" class="primary">Start live translation</button>
+          <button id="stopLive" class="secondary" disabled>Stop</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card compactcard">
+      <h2>Display</h2>
+      <label class="field">Subtitle text size
+        <select id="subtitleSize">
+          <option value="xsmall">Extra small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="xlarge">Extra large</option>
+        </select>
+      </label>
+      <label class="checkline"><input id="hideOriginalCaptions" type="checkbox"> Show translation only (hide original/site subtitles)</label>
+      <div class="small hint">When the original subtitles are hidden, OpenSub automatically moves the translation down to the normal single-subtitle position.</div>
+    </section>
+
+    <section id="controlsCard" class="card hidden">
+      <h2>Saved playback</h2>
+      <div class="row between"><span>Saved subtitles on this page</span><input id="entryEnabled" type="checkbox"></div>
+      <div class="row">
+        <button id="minusOffset" class="smallbtn">−0.25s</button>
+        <span id="offsetValue" class="pill">+0.00s</span>
+        <button id="plusOffset" class="smallbtn">+0.25s</button>
+      </div>
+      <div class="row">
+        <button id="downloadSource" class="secondary">↓ Source SRT</button>
+        <button id="downloadTranslation" class="secondary">↓ Translated SRT</button>
+      </div>
+      <button id="removeEntry" class="danger">Remove saved subtitles from this page</button>
+    </section>
+
+    <div id="actionMessage" class="message"></div>
+
+    <footer>
+      <button id="openLibrary" class="linkbtn">Open subtitle library</button>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
