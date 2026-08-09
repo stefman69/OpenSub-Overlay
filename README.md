@@ -23,12 +23,16 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 2. Play several seconds.
 3. Open OpenSub Overlay and click Refresh detection if needed.
 4. Use the first available method:
+
    A. HTML5 subtitle track
+
    B. If no HTML subtitle track is detected select the dropdown for other complete track options
+
    C. If no subtitle file is found you can manually upload a subtitle from any language available on Google translate.
-5. Choose source/target languages.
-6. Translate & overlay.
-7. The completed translation is stored and auto-loads anytime the video is played 
+   
+6. Choose source/target languages.
+7. Translate & overlay.
+8. The completed translation is stored and auto-loads anytime the video is played 
 
 # LIVE SUBTITLE WORKFLOW
 
