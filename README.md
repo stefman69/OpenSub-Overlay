@@ -1,6 +1,6 @@
 # OpenSub-Overlay
 
-For translating video subtitles to multiple languages across multiple video and streaming services, with the intention of being used for language learning. This is my first Google Chrome extension so any feedback on websites that did not work for you or any other issues encountered while using it would be greatly appreciated. 
+For translating video subtitles to multiple languages across most video and streaming services, with the intention of being used for language learning. This is my first Google Chrome extension so any feedback on websites that did not work for you or any other issues encountered while using it would be greatly appreciated. 
 
 If you use and like the extension, consider buying me a coffee!
 
