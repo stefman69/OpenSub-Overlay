@@ -26,14 +26,7 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 1. Open the video and turn the site's original captions on.
 2. Play several seconds.
 3. Open OpenSub Overlay and click Refresh detection if needed.
-4. Use the first available method:
-
-   A. HTML5 subtitle track
-
-   B. If no HTML subtitle track is detected select the dropdown for other complete track options
-
-   C. If no subtitle file is found you can manually upload a subtitle from any language available on Google translate.
-   
+4. If a subtitle track is detected select it from detected subtitle tracks dropdown. Alternatively you can upload your own subtitle track below that if you prefer as they may be more accurate.  
 6. Choose source/target languages.
 7. Translate & overlay.
 8. The completed translation is stored and auto-loads anytime the video is played 
