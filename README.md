@@ -9,10 +9,13 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 1. Download the latest release zip file.
 2. Extract the folder from the zipped archive.
 3. in Google chrome click the puzzle piece icon at the top and select manage extensions at the bottom
-     *if no puzzle piece icon is present you will need to click the three dots in the top right, select extensions then manage extensions
-     *OpenSub may work on Android alternative Chromium-based browsers that allow extemsions like Kiwi Browser or Yandex Browser.
-4. On the manage extensions page turn on the developer toggle in the top right corner.
-5. At the top left under where it says extensions an option should appear that says "Load unpacked" select this option and then navigate to the extracted, most likely in your computer downloads. Click on thr OpenSub_Overlay folder and then click the select folder option.
+
+   *if no puzzle piece icon is present you will need to click the three dots in the top right, select extensions then manage extensions
+
+   *OpenSub may work on Android alternative Chromium-based browsers that allow extemsions like Kiwi Browser or Yandex Browser.
+   
+5. On the manage extensions page turn on the developer toggle in the top right corner.
+6. At the top left under where it says extensions an option should appear that says "Load unpacked" select this option and then navigate to the extracted, most likely in your computer downloads. Click on thr OpenSub_Overlay folder and then click the select folder option.
 
 # SRT FILE DOWNLOAD WORKFLOW
 
