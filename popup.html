@@ -43,27 +43,40 @@
       <h2 id="sourcePanelTitle">HTML5 / complete-track settings</h2>
 
       <div id="html5Panel">
-        <label class="field">HTML5 subtitle track
-          <select id="siteTrack"><option value="">No exposed tracks detected</option></select>
+        <label class="field">Detected downloadable subtitles
+          <select id="detectedSubtitle">
+            <option value="">No downloadable subtitle tracks detected</option>
+          </select>
         </label>
-        <button id="captureTrack" class="secondary" disabled>Capture selected track</button>
+        <div class="small hint">Select a subtitle source to load it immediately. HTML5 tracks and captured timed-text files are listed together here. If a custom player has just started showing captions, use Refresh detection to update the list.</div>
 
         <details class="moreoptions">
-          <summary>Other complete-track options</summary>
+          <summary>Upload subtitle file</summary>
           <div class="detailsbody">
-            <label class="field">Captured timed-text resource
-              <select id="networkTrack"><option value="">No caption resources captured yet</option></select>
+            <label class="field">Original subtitle file (.srt / .vtt / .ttml / .json)
+              <input id="subtitleFile" type="file" accept=".srt,.vtt,.ttml,.dfxp,.xml,.smi,.sami,.json,text/vtt,application/x-subrip,text/plain,application/xml,application/json">
             </label>
-            <button id="captureNetwork" class="secondary" disabled>Use captured timed-text resource</button>
-            <div class="small hint">If the site uses a custom player, turn its captions on, play a few seconds, then Refresh detection.</div>
-
-            <div class="or">or import</div>
-            <label class="field">Subtitle file (.srt / .vtt / .ttml)
-              <input id="subtitleFile" type="file" accept=".srt,.vtt,.ttml,.dfxp,.xml,.smi,text/vtt,application/x-subrip,text/plain,application/xml">
-            </label>
+            <div class="small hint">Use this only when you already have a subtitle file on your computer.</div>
           </div>
         </details>
-        <div id="sourceState" class="state muted">Choose or capture a complete subtitle track.</div>
+        <div id="sourceState" class="state muted">Choose a detected subtitle source above, or upload a file.</div>
+
+        <div class="translationmethodbox">
+          <label class="field">Translation method
+            <select id="translationMethod">
+              <option value="chrome">Translate with Chrome</option>
+              <option value="provided">Use translated subtitle file</option>
+            </select>
+          </label>
+          <div id="providedTranslationPanel" class="hidden">
+            <label class="field">Translated subtitle file
+              <input id="translatedSubtitleFile" type="file" accept=".srt,.vtt,.ttml,.dfxp,.xml,.smi,.sami,.json,text/vtt,application/x-subrip,text/plain,application/xml,application/json">
+            </label>
+            <div class="small hint">The original can be the detected website subtitle selected above or an original subtitle file you uploaded. OpenSub compares the two timelines before using them.</div>
+            <div id="pairSyncState" class="state muted">Choose a translated subtitle file to check timing.</div>
+            <label id="pairUseAnywayRow" class="checkline hidden"><input id="pairUseAnyway" type="checkbox"> Use this translated file anyway despite the timing warning</label>
+          </div>
+        </div>
       </div>
 
       <div id="livePanel" class="hidden">
@@ -84,6 +97,7 @@
 
       <div id="trackActions">
         <button id="translateSave" class="primary">Translate & overlay</button>
+        <button id="useProvidedTranslation" class="primary hidden">Use translated file & overlay</button>
         <button id="saveOriginal" class="secondary">Overlay without translating</button>
         <div id="progressWrap" class="progress hidden">
           <div class="bar"><div id="progressBar"></div></div>
@@ -111,17 +125,29 @@
         </select>
       </label>
       <label class="checkline"><input id="hideOriginalCaptions" type="checkbox"> Show translation only (hide original/site subtitles)</label>
-      <div class="small hint">When the original subtitles are hidden, OpenSub automatically moves the translation down to the normal single-subtitle position.</div>
+      <div class="small hint">OpenSub manages the subtitle layout itself: with this off it shows translation + original in a consistent stack; with it on only the translation is shown.</div>
     </section>
 
     <section id="controlsCard" class="card hidden">
       <h2>Saved playback</h2>
       <div class="row between"><span>Saved subtitles on this page</span><input id="entryEnabled" type="checkbox"></div>
-      <div class="row">
-        <button id="minusOffset" class="smallbtn">−0.25s</button>
+      <div class="timinghead">
+        <span>Timing offset</span>
         <span id="offsetValue" class="pill">+0.00s</span>
-        <button id="plusOffset" class="smallbtn">+0.25s</button>
       </div>
+      <div class="offsetgrid" aria-label="Adjust subtitle timing">
+        <button class="smallbtn offsetbtn" data-offset-delta="-5">−5s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="-1">−1s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="-0.25">−0.25s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="-0.1">−0.1s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="0.1">+0.1s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="0.25">+0.25s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="1">+1s</button>
+        <button class="smallbtn offsetbtn" data-offset-delta="5">+5s</button>
+      </div>
+      <button id="resetOffset" class="secondary compactbutton">Reset current timing to 0</button>
+      <div id="siteTimingState" class="small hint"></div>
+      <button id="forgetSiteTiming" class="secondary compactbutton">Forget learned timing for this site</button>
       <div class="row">
         <button id="downloadSource" class="secondary">↓ Source SRT</button>
         <button id="downloadTranslation" class="secondary">↓ Translated SRT</button>
@@ -129,10 +155,22 @@
       <button id="removeEntry" class="danger">Remove saved subtitles from this page</button>
     </section>
 
+    <details class="moreoptions troubleshooting">
+      <summary>Troubleshooting / site report</summary>
+      <div class="detailsbody">
+        <div class="small hint">If subtitles behave incorrectly on a site, download this read-only report and send it with the problem description. It does not reset or change subtitle state.</div>
+        <button id="downloadDebugDump" class="secondary compactbutton" type="button">↓ Download subtitle debug dump</button>
+      </div>
+    </details>
+
     <div id="actionMessage" class="message"></div>
 
     <footer>
       <button id="openLibrary" class="linkbtn">Open subtitle library</button>
+      <a class="coffee-banner" href="https://buymeacoffee.com/stefman69" target="_blank" rel="noopener noreferrer" aria-label="Support OpenSub Overlay on Buy Me a Coffee">
+        <span class="coffee-icon" aria-hidden="true">☕</span>
+        <span>Enjoying OpenSub? <strong>Buy me a coffee</strong></span>
+      </a>
     </footer>
   </main>
   <script src="popup.js"></script>

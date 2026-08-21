@@ -53,3 +53,44 @@ footer { text-align: center; }
 .moreoptions { margin-top: 9px; border: 1px solid #343a44; border-radius: 7px; background: #191c21; }
 .moreoptions summary { cursor: pointer; padding: 8px 9px; font-size: 11px; font-weight: 700; color: #bfc7d4; }
 .detailsbody { padding: 2px 9px 9px; }
+
+.troubleshooting { margin-bottom: 10px; }
+.troubleshooting .compactbutton { margin-top: 8px; }
+
+
+/* Complete-subtitle workflow additions */
+.translationmethodbox { border-top: 1px solid #343a44; margin-top: 11px; padding-top: 10px; }
+#providedTranslationPanel { margin-top: 8px; padding: 9px; border: 1px solid #343a44; border-radius: 7px; background: #191c21; }
+#pairSyncState.syncgood { color: #b9f0cb; }
+#pairSyncState.syncwarn { color: #ffd29a; }
+.timinghead { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 9px; font-size: 12px; color: #cbd2dd; }
+.offsetgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px; }
+.offsetgrid .offsetbtn { width: 100%; min-width: 0; padding: 8px 4px; margin: 0; }
+#resetOffset, #forgetSiteTiming { margin-top: 7px; }
+#forgetSiteTiming:disabled { opacity: .4; }
+
+
+/* OpenSub v1 support banner */
+.coffee-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid #4a4030;
+  border-radius: 9px;
+  background: #262117;
+  color: #f3e5bd;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.25;
+}
+.coffee-banner:hover, .coffee-banner:focus-visible {
+  background: #31291b;
+  border-color: #6b5a3b;
+  outline: none;
+}
+.coffee-banner strong { color: #fff1c5; }
+.coffee-icon { font-size: 16px; line-height: 1; }

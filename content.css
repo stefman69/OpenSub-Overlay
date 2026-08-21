@@ -6,7 +6,7 @@
   align-items: flex-end;
   justify-content: center;
   box-sizing: border-box !important;
-  padding: 0 4% 6.5% !important;
+  padding: 0 4% 3.0% !important;
   margin: 0 !important;
   border: 0 !important;
   background: transparent !important;
@@ -18,12 +18,23 @@
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  padding-bottom: 5.5% !important;
+  padding-bottom: 2.6% !important;
 }
 
-#opensub-overlay-text {
-  display: inline !important;
+#opensub-overlay-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0.20em !important;
+  width: 92% !important;
   max-width: 92% !important;
+  box-sizing: border-box !important;
+}
+
+.opensub-overlay-line {
+  display: inline-block !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
   padding: 0.12em 0.38em !important;
   border-radius: 0.14em !important;
@@ -34,12 +45,16 @@
   line-height: 1.28 !important;
   text-align: center !important;
   white-space: pre-line !important;
+  overflow-wrap: break-word !important;
   text-shadow: 0 1px 2px #000, 0 0 3px #000 !important;
   font-variant-ligatures: none !important;
 }
 
+#opensub-overlay-source {
+  font-weight: 500 !important;
+}
 
-#opensub-overlay-text:empty {
+.opensub-overlay-line:empty {
   display: none !important;
   padding: 0 !important;
   background: transparent !important;
@@ -54,6 +69,27 @@
   background: transparent !important;
   border-color: transparent !important;
 }
+/* YouTube Live: pre-paint suppression. The class is present for the entire OpenSub
+   Live session, so newly-created YouTube caption spans are transparent on their very first
+   style/paint pass instead of flashing once before the MutationObserver can conceal them. */
+html.opensub-youtube-live-suppress .ytp-caption-window-container,
+html.opensub-youtube-live-suppress .ytp-caption-window-container *,
+html.opensub-youtube-live-suppress .caption-window,
+html.opensub-youtube-live-suppress .caption-window *,
+html.opensub-youtube-live-suppress .captions-text,
+html.opensub-youtube-live-suppress .captions-text *,
+html.opensub-youtube-live-suppress .caption-visual-line,
+html.opensub-youtube-live-suppress .caption-visual-line *,
+html.opensub-youtube-live-suppress .ytp-caption-segment {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
 #opensub-overlay-status {
   position: fixed !important;
   z-index: 2147483647 !important;
@@ -80,11 +116,37 @@ video[data-opensub-size="medium"]::cue { font-size: 84% !important; }
 video[data-opensub-size="large"]::cue { font-size: 96% !important; }
 video[data-opensub-size="xlarge"]::cue { font-size: 110% !important; }
 
-/* v4.4: if OpenSub is the only visible subtitle line, use the lower single-caption position. */
-#opensub-overlay-root.opensub-single-line-position {
+/* v1 managed dual-caption layout. The bottom source line sits at the normal subtitle
+   position and the translation stacks above it. Wrapping expands upward automatically. */
+#opensub-overlay-root.opensub-managed-stack {
   padding-bottom: 3.0% !important;
 }
 
-#opensub-overlay-root.opensub-in-fullscreen.opensub-single-line-position {
+#opensub-overlay-root.opensub-in-fullscreen.opensub-managed-stack {
   padding-bottom: 2.6% !important;
+}
+
+
+/* Pluto-only: applied only to individual original-caption nodes selected by pluto_shaka.js.
+   Never hide the Shaka container itself because OpenSub may be mounted inside that wrapper. */
+.opensub-pluto-original-caption,
+.opensub-pluto-original-caption * {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Universal rolling-track source echo suppression.
+   OpenSub's managed stack already redraws the source text, so custom players that mirror
+   the same active TextTrack cue into DOM must not leave a third subtitle copy visible. */
+.opensub-rolling-hide-source-echo {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

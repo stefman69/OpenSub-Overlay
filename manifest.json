@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OpenSub Overlay",
-  "version": "1.0",
+  "version": "1.0.33",
   "description": "Capture, translate, and overlay subtitles across websites,  adjustable text sizing, and dual/single subtitle translation.",
   "minimum_chrome_version": "138",
   "permissions": [
@@ -63,7 +63,60 @@
       "match_about_blank": true,
       "match_origin_as_fallback": true,
       "world": "MAIN"
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "subtitle_discovery.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "rolling_tracks.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "caption_guard.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    },
+    {
+      "matches": [
+        "https://pluto.tv/*",
+        "https://*.pluto.tv/*"
+      ],
+      "js": [
+        "pluto_shaka.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
     }
   ],
-  "options_page": "library.html"
+  "options_page": "library.html",
+  "version_name": "v1"
 }

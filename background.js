@@ -33,6 +33,41 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return;
   }
 
+  if (message.type === 'opensub-fetch-resource') {
+    (async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 9000);
+      try {
+        const url = String(message.url || '');
+        if (!/^https?:\/\//i.test(url)) throw new Error('Only HTTP(S) resources can be inspected.');
+        const maxBytes = Math.max(65536, Math.min(4 * 1024 * 1024, Number(message.maxBytes || 3 * 1024 * 1024)));
+        const response = await fetch(url, {
+          credentials: 'include',
+          cache: 'no-store',
+          redirect: 'follow',
+          signal: controller.signal,
+          referrer: /^https?:\/\//i.test(String(message.pageUrl || '')) ? String(message.pageUrl) : undefined
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const length = Number(response.headers.get('content-length') || 0);
+        if (length && length > maxBytes) throw new Error('Resource is too large to inspect safely.');
+        const text = await response.text();
+        if (text.length > maxBytes) throw new Error('Resource is too large to inspect safely.');
+        sendResponse({
+          ok: true,
+          url: response.url || url,
+          contentType: response.headers.get('content-type') || '',
+          text
+        });
+      } catch (error) {
+        sendResponse({ ok: false, error: error?.message || String(error) });
+      } finally {
+        clearTimeout(timeout);
+      }
+    })();
+    return true;
+  }
+
   if (message.type === 'opensub-live-translate') {
     (async () => {
       try {
