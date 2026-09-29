@@ -21,7 +21,7 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 5. On the manage extensions page turn on the developer toggle in the top right corner.
 6. At the top left under where it says extensions an option should appear that says "Load unpacked" select this option and then navigate to the extracted, most likely in your computer downloads. Click on thr OpenSub_Overlay folder and then click the select folder option.
 
-# SRT FILE DOWNLOAD WORKFLOW
+# FIND ON PAGE WORKFLOW
 
 1. Open the video and turn the site's original captions on.
 2. Play several seconds.
@@ -37,17 +37,31 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 
 While OpenSub is active it manages subtitle placement itself for consistent positioning across players. By default it displays the translated subtitle above a locally redrawn copy of the original subtitle. Enable **Show translation only** to display only the translation.
 
-# LIVE SUBTITLE WORKFLOW
+# LIVE CAPTIONS WORKFLOW
 
 Use this when the original captions are visibly playing but OpenSub cannot download a subtitle file.
 
-1. Turn the site's captions on and let a caption appear.
-2. Open OpenSub Overlay extension and click Refresh detection.
-3. If “Custom/DOM caption text detected” appears, choose source/target languages.
-4. Click Start live translation.
-5. If you want only the translated subtitle check the box to disable original subtitles.
+1. Turn the site's captions on and let the video play until captions appear.
+2. Open OpenSub Overlay extension and click the live captions option at the top of the extension.
+3. Click Refresh detection if no live subtitles are detected.
+4. If “Custom/DOM caption text detected” appears, choose source/target languages.
+5. Click Start live translation.
+6. If you want only the translated subtitle check the box to disable original subtitles.
 
 Live translation is a fallback. Because it translates captions as they appear, there can be a small delay compared with translating a complete subtitle file up front.
+
+# UPLOAD SUBS WORKFLOW
+
+1. Click the Upload Subs box at the top of the extension.
+2. Scroll down and click the box that says Choose file.
+3. Navigate to and select your subtitle file and upload it.
+    3a. Or select the dropdown for opensubtitles.com (you will need to log into an opensubtitle account that you have made on there website in         the account dropdown in this menu, but doing so will allow you to search for and download subtitles in the extension)
+4. Once you have a file pulled up scroll down and select translate and overlay, or set the translation method as use translated subtitle file and use your own.
+5. If you want only the translated subtitle check the box to disable original subtitles.
+
+# BATCH MULTIPLE SUBTITLES AND DOWNLOAD THEM
+
+This extension also allows for adding as many subtitles as you want at once and can translate them all together. You can then download them as either dual subtitle files or as just translated subtitles. The steps are largely the same as the single upload subs workflow, you just need to select the batch toggle at the top of the extension.
 
 # SUPPORTED IMPORT / CAPTURE FORMATS
 
