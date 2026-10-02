@@ -10,7 +10,7 @@ https://buymeacoffee.com/stefman69
 
 Google chrome has approved my extension their store and it can be downloaded here: https://chromewebstore.google.com/detail/opensub-overlay/bgoikhnecpbdhpmhpbdhjidibogdcopp
 
-Or you optionally you can install it from the archive on my release page; 
+Or optionally you can install it from the archive on my release page; 
 
 1. Download the latest release zip file. It can be found here: https://github.com/stefman69/OpenSub-Overlay/releases/tag/v1.0
 2. Extract the folder from the zipped archive.
