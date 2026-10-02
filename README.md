@@ -31,11 +31,11 @@ Or read below:
 1. Open the video and turn the site's original captions on.
 2. Play several seconds.
 3. Open OpenSub Overlay and click Refresh detection if needed.
-4. If a subtitle track is detected select it from the detected subtitle tracks dropdown. Alternatively, upload your own original subtitle file.  
+4. If a subtitle track is detected select it from the detected subtitle tracks dropdown.
 5. Choose source/target languages.
 6. Choose **Translate with Chrome** for local machine translation, or **Use translated subtitle file** to pair the website/uploaded original with your own translated SRT/VTT/TTML/JSON file. OpenSub checks the two timelines and can correct a consistent translated-file offset before saving.
 7. Translate & overlay (or use the supplied translated file).
-8. Once the OpenSub translation is displaying, **turn off the website/player's own captions if they are still visible.** OpenSub already redraws the original subtitle beneath the translation, so leaving the player's captions enabled can create a third duplicate subtitle on some sites. OpenSub may passively suppress duplicate caption renderers when it can identify them safely, but it does **not** click or change a website's CC/subtitle controls. This note applies to file/downloaded subtitle translation; Live translation may still require the site's captions to remain enabled so OpenSub can keep receiving new caption text.
+8. Once the OpenSub translation is displaying, **turn off the website/player's own captions if they are still visible.** OpenSub already redraws the original subtitle beneath the translation, so leaving the player's captions enabled can create a third duplicate subtitle on some sites. 
 9. The completed translation is stored and auto-loads anytime the video is played.
 
 # LIVE CAPTIONS WORKFLOW
