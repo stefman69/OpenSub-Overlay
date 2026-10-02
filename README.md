@@ -8,7 +8,7 @@ https://buymeacoffee.com/stefman69
 
 # Installation Instructions
 
-Google chrome has approved my extension their store and it can be downloaded here: https://chromewebstore.google.com/detail/opensub-overlay/bgoikhnecpbdhpmhpbdhjidibogdcopp
+Google chrome has approved my extension on their store and it can be downloaded here: https://chromewebstore.google.com/detail/opensub-overlay/bgoikhnecpbdhpmhpbdhjidibogdcopp
 
 Or optionally you can install it from the archive on my release page; 
 
