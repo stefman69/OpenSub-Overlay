@@ -8,7 +8,9 @@ https://buymeacoffee.com/stefman69
 
 # Installation Instructions
 
-I am hopeful Google Chrome will approve my extension on their store soon, but until then this extension will need to be manually installed. 
+Google chrome has approved my extension their store and it can be downloaded here: https://chromewebstore.google.com/detail/opensub-overlay/bgoikhnecpbdhpmhpbdhjidibogdcopp
+
+Or you optionally you can install it from the archive on my release page; 
 
 1. Download the latest release zip file. It can be found here: https://github.com/stefman69/OpenSub-Overlay/releases/tag/v1.0
 2. Extract the folder from the zipped archive.
@@ -16,10 +18,15 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 
    *if no puzzle piece icon is present you will need to click the three dots in the top right, select extensions then manage extensions
 
-   *OpenSub may work on Android alternative Chromium-based browsers that allow extemsions like Kiwi Browser or Yandex Browser.
+   *OpenSub may work on Android alternative Chromium-based browsers that allow extensions like Kiwi Browser or Yandex Browser, but has not been tested on those platforms.
    
-5. On the manage extensions page turn on the developer toggle in the top right corner.
-6. At the top left under where it says extensions an option should appear that says "Load unpacked" select this option and then navigate to the extracted, most likely in your computer downloads. Click on thr OpenSub_Overlay folder and then click the select folder option.
+4. On the manage extensions page turn on the developer toggle in the top right corner.
+5. At the top left under where it says extensions an option should appear that says "Load unpacked" select this option and then navigate to the extracted, most likely in your computer downloads. Click on thr OpenSub_Overlay folder and then click the select folder option.
+
+# How To Video
+For detailed instructions on using OpenSub Overlay please watch the video on my YouTube channel: https://youtu.be/Gs_IkVPzHX8?is=gWsH4z76U-JLAJg-
+
+Or read below:
 
 # FIND ON PAGE WORKFLOW
 
@@ -32,10 +39,6 @@ I am hopeful Google Chrome will approve my extension on their store soon, but un
 7. Translate & overlay (or use the supplied translated file).
 8. Once the OpenSub translation is displaying, **turn off the website/player's own captions if they are still visible.** OpenSub already redraws the original subtitle beneath the translation, so leaving the player's captions enabled can create a third duplicate subtitle on some sites. OpenSub may passively suppress duplicate caption renderers when it can identify them safely, but it does **not** click or change a website's CC/subtitle controls. This note applies to file/downloaded subtitle translation; Live translation may still require the site's captions to remain enabled so OpenSub can keep receiving new caption text.
 9. The completed translation is stored and auto-loads anytime the video is played.
-
-# SUBTITLE DISPLAY
-
-While OpenSub is active it manages subtitle placement itself for consistent positioning across players. By default it displays the translated subtitle above a locally redrawn copy of the original subtitle. Enable **Show translation only** to display only the translation.
 
 # LIVE CAPTIONS WORKFLOW
 
