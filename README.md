@@ -56,13 +56,13 @@ Live translation is a fallback. Because it translates captions as they appear, t
 1. Click the Upload Subs box at the top of the extension.
 2. Scroll down and click the box that says Choose file.
 3. Navigate to and select your subtitle file and upload it.
-    3a. Or select the dropdown for opensubtitles.com (you will need to log into an opensubtitle account that you have made on there website in         the account dropdown in this menu, but doing so will allow you to search for and download subtitles in the extension)
+    3a. Or select the dropdown for opensubtitles.com (you will need to log into an opensubtitle account that you have made on their website in the account dropdown in this menu. Doing so will allow you to search for and download subtitles in the extension)
 4. Once you have a file pulled up scroll down and select translate and overlay, or set the translation method as use translated subtitle file and use your own.
 5. If you want only the translated subtitle check the box to disable original subtitles.
 
 # BATCH MULTIPLE SUBTITLES AND DOWNLOAD THEM
 
-This extension also allows for adding as many subtitles as you want at once and can translate them all together. You can then download them as either dual subtitle files or as just translated subtitles. The steps are largely the same as the single upload subs workflow, you just need to select the batch toggle at the top of the extension.
+This extension also allows for adding multiple subtitles files at once and can translate them all together. You can then download them as either dual subtitle files or as just translated subtitles. The steps are largely the same as the single upload subs workflow, you just need to select the batch toggle at the top of the extension.
 
 # SUPPORTED IMPORT / CAPTURE FORMATS
 
